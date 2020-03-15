@@ -1,0 +1,18 @@
+.list-content {
+  padding-bottom: rem-cal(50px);
+  .list-title {
+    text-align: center;
+    font-size: rem-cal(16px);
+    margin-top: rem-cal(14px);
+    margin-bottom: rem-cal(5px);
+    .title-line {
+      display: inline-block;
+      border-bottom: 1px solid #949494;
+      height: 1px;
+      width: rem-cal(30px);
+      margin-left: rem-cal(4px);
+      margin-right: rem-cal(4px);
+      margin-bottom: rem-cal(4px);
+    }
+  }
+}

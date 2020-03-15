@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import Main from './Main/Main';
+import Container from './Main/Container';
 
 ReactDOM.render(
   (
     <Provider store={store}>
-      <Main />
+      <Container />
     </Provider>
   ),
   document.getElementById('root')

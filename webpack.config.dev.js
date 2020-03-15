@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const srcRoot = path.resolve(__dirname, 'src');
 const devPath = path.resolve(__dirname, 'dev');
@@ -51,6 +52,13 @@ module.exports = {
     path: devPath,
     filename: '[name].min.js'
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(srcRoot),
+      'react-dom': '@hot-loader/react-dom'
+    },
+    extensions: ['.js', '.json', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -60,35 +68,53 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader', 
+          'css-loader', 
+          'sass-loader', 
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: srcRoot + '/component/common.scss'
+            }
+          }
+        ],
         include: srcRoot
       },
       {
-        test: /\.(png|jpg|jpeg)$/,
+        test: /\.(png|gif|jpe?g)$/,
         loader: 'url-loader',
         options: {
-          limit: 8 * 1024
+          limit: 8 * 1024,
+          esModule: false
         },
         include: srcRoot
       },
       {
+        // 处理html中img资源
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      {
         test: /\.(jsx?)$/,
-        loader: 'babel-loader',
+        use: [
+          'babel-loader',
+          'eslint-loader'
+        ],
         include: srcRoot,
         exclude: /node_modules/
       }
     ]
   },
   plugins: [
-    ...htmlArray
+    ...htmlArray,
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: devPath,
     compress: true,
     port: 3000,
-    open: true
-  },
-  resolve: {
-    extensions: ['.js', '.json', '.jsx']
+    open: true,
+    hot: true
   }
 }

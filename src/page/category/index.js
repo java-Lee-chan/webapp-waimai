@@ -7,7 +7,7 @@ import Main from './Main/Main';
 
 ReactDOM.render(
   (
-    <Provider store={store}>
+    <Provider>
       <Main />
     </Provider>
   ),

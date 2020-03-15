@@ -1,0 +1,109 @@
+.item-content {
+  display: flex;
+  padding-top: rem-cal(15px);
+  padding-bottom: rem-cal(15px);
+  margin-left: rem-cal(10px);
+  margin-right: rem-cal(10px);
+  color: #656565;
+  &::after {
+    background-color: #e4e4e4;
+  }
+  .item-img {
+    width: rem-cal(86px);
+    height: rem-cal(65px);
+    border: 1px solid #e4e4e4;
+  }
+  .brand {
+    position: absolute;
+    left: 1px;
+    top: 16px;
+    font-size: 12px;
+    padding: 2px;
+    color: #fff;
+  }
+  .brand-pin {
+    background-color: #ffa627;
+  }
+  .brand-xin {
+    background-color: #21c56c;
+  }
+  .item-info-content {
+    flex: 1;
+    margin-left: 7px;
+
+    .item-title {
+      margin-top: 3px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+    .item-desc {
+      margin-top: 13px;
+      font-size: 12px;
+      .item-score {
+        float: left;
+      }
+      .item-count {
+        float: left;
+        margin-left: 5px;
+      }
+      .item-distance {
+        float: right;
+      }
+      .item-time {
+        float: right;
+      }
+    }
+    .item-price {
+      margin-top: 10px;
+      font-size: 12px;
+      height: 24px;
+      .item-pre-price {
+        float: left;
+      }
+      .item-meituan-flag {
+        float: right;
+        background-color: #ffd161;
+        color: #000;
+        padding: 3px;
+        border-radius: 3px;
+      }
+    }
+    .item-others {
+      color: #898989;
+      margin-top: 7px;
+      font-size: 12px;
+      .other-info {
+        .other-tag {
+          width: 14px;
+          height: 14px;
+          display: inline-block;
+        }
+        .other-content {
+          display: inline-block;
+          vertical-align: 3px;
+          margin-left: 3px;
+          height: 14px;
+          width: 230px;
+        }
+      }
+    }
+    .star {
+      width: 10px;
+      height: 10px;
+      float: left;
+    }
+    .fullstar {
+      background: url('./img//fullstar.png');
+      background-size: cover;
+    }
+    .halfstar {
+      background: url('./img//halfstar.png');
+      background-size: cover;
+    }
+    .nullstar {
+      background-image: url('./img/gray-star.png');
+      background-size: cover;
+    }
+  }
+}

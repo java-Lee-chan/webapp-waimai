@@ -1,0 +1,19 @@
+.category-content {
+  padding-bottom: rem-cal(10px);
+  .category-item {
+    float: left;
+    width: 25%;
+    padding-top: rem-cal(14px);
+    font-size: rem-cal(13px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .item-icon {
+      width: rem-cal(47px);
+    }
+    .item-name {
+      margin-top: rem-cal(14px);
+    }
+  }
+}
