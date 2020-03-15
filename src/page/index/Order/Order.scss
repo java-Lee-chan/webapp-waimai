@@ -1,0 +1,14 @@
+.order-container {
+  padding-bottom: rem-cal(50px);
+  .header {
+    width: 100%;
+    height: rem-cal(64px);
+    line-height: rem-cal(64px);
+    background: #fff;
+    border-bottom: 1px solid #b2b2b2;
+    font-size: rem-cal(17px);
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+  }
+}

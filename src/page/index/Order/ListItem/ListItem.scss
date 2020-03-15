@@ -1,0 +1,82 @@
+.order-item {
+  border-top: rem-cal(13px) solid #efefef;
+  .order-item-inner {
+    display: flex;
+    padding-bottom: rem-cal(18px);
+    border-bottom: 1px solid #e0e0e0;
+    .item-img {
+      width: rem-cal(40px);
+      height: rem-cal(40px);
+      margin-top: rem-cal(8px);
+      margin-left: rem-cal(16px);
+      border-radius: 50%;
+    }
+    .item-right {
+      flex: 1;
+      margin-left: rem-cal(15px);
+      .item-top {
+        height: rem-cal(55px);
+        padding-top: rem-cal(2px);
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e0e0e0;
+        .order-name {
+          font-size: rem-cal(16px);
+          width: rem-cal(180px);
+          height: rem-cal(16px);
+          font-weight: 600;
+        }
+        .arrow {
+          width: rem-cal(8px);
+          height: rem-cal(8px);
+          border: 1px solid #999;
+          border-width: 1px 1px 0 0;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+        .order-state {
+          margin-left: rem-cal(40px);
+          font-size: rem-cal(14px);
+          color: #999;
+        }
+      }
+      .item-bottom {
+        .product-item {
+          font-size: rem-cal(14px);
+          color: #666;
+          margin-top: rem-cal(12px);
+          .product-count {
+            float: right;
+            margin-right: rem-cal(15px);
+          }
+          .product-total-count {
+            float: right;
+            margin-right: rem-cal(15px);
+            font-size: rem-cal(12px);
+            .total-price {
+              font-size: rem-cal(14px);
+              color: #151515;
+              margin-left: rem-cal(2px);
+              letter-spacing: 1px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .evaluation {
+    padding-top: rem-cal(10px);
+    padding-bottom: rem-cal(10px);
+    .evaluation-btn {
+      float: right;
+      width: rem-cal(100px);
+      height: rem-cal(32px);
+      color: #6b450a;
+      background-color: #ffd161;
+      font-size: rem-cal(14px);
+      line-height: rem-cal(32px);
+      text-align: center;
+      margin-right: rem-cal(10px);
+    }
+  }
+}
