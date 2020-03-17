@@ -1,0 +1,184 @@
+.header {
+  width: 100%;
+  background-color: #fff;
+  margin-top: rem-cal(64px);
+  .header-top {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    height: rem-cal(40px);
+    align-items: center;
+    border-bottom: 1px solid #e4e4e4;
+    background-color: #fff;
+    .item {
+      font-size: rem-cal(13px);
+      color: #2f2f2f;
+      border-right: 1px solid #ddd;
+      flex: 1;
+      text-align: center;
+      position: relative;
+
+      &:last-child {
+        border: none;
+      }
+
+      &.cate::after, &.type::after {
+        content: '';
+        display: inline-block;
+        height: rem-cal(5px);
+        width: rem-cal(5px);
+        margin-bottom: rem-cal(2px);
+        margin-left: rem-cal(6px);
+        border: 1px solid #666;
+        border-width: 0 1px 1px 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: .3s;
+        transition: .3s;
+      }
+    
+      &.filter::after {
+        content: '';
+        display: inline-block;
+        height: rem-cal(12px);
+        width: rem-cal(12px);
+        line-height: rem-cal(12px);
+        background-image: url('./img/filter.png');
+        background-size: cover;
+      }
+
+      &.current:not(.filter)::after {
+        -webkit-transform: rotate(225deg);
+        transform: rotate(225deg);
+      }
+
+      &::before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: rem-cal(23px);
+        left: 49%;
+        width: rem-cal(7px);
+        height: rem-cal(7px);
+        background-color: #fff;
+        border: 1px solid #e4e4e4;
+        border-width: 0 1px 1px 0;
+        -webkit-transform: rotate(225deg);
+        transform: rotate(225deg);
+      }
+      &.cate::before {
+        background-color: #efefef;
+      }
+      &.current::before {
+        display: block;
+      }
+    }
+  }
+  .panel {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: rem-cal(105px);
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+    &.show {
+      display: block;
+    }
+    .panel-inner {
+      height: rem-cal(300px);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      background-color: #fff;
+      > ul {
+        display: none;
+        background-color: #fff;
+        &.current {
+          display: block;
+        }
+      }
+      .cate-item {
+        .item-title {
+          position: relative;
+          font-size: rem-cal(12px);
+          height: rem-cal(30px);
+          background-color: #efefef;
+          line-height: rem-cal(30px);
+          color: #666;
+          padding-left: rem-cal(13px);
+          &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            margin-top: rem-cal(7px);
+            margin-left: rem-cal(-13px);
+            width: rem-cal(2px);
+            height: rem-cal(16px);
+            background-color: #ffd161;
+          }
+          .item-count {
+            padding: rem-cal(2px) rem-cal(4px) rem-cal(1px);
+            background-color: #bbb;
+            color: #fff;
+            margin-left: rem-cal(5px);
+            border-radius: 4px;
+          }
+        }
+      }
+      .item-content {
+        min-height: rem-cal(20px);
+        .cate-box {
+          float: left;
+          width: 33.33%;
+          font-size: rem-cal(12px);
+          padding: rem-cal(10px);
+          box-sizing: border-box;
+          .cate-box-inner {
+            border: 1px solid #c4c4c4;
+            text-align: center;
+            color: #666;
+            height: rem-cal(37px);
+            line-height: rem-cal(37px);
+            position: relative;
+            &.has-icon img {
+              display: block;
+              width: rem-cal(18px);
+              height: rem-cal(18px);
+              position: absolute;
+              top: rem-cal(10px);
+              left: rem-cal(4px);
+            }
+            &.active {
+              background-color: #fffbf1;
+              color: #ffb000;
+              border-color: #ffb000;
+            }
+          }
+        }
+      }
+      .type-item {
+        border-bottom: 1px solid #e9e9e9;
+        height: rem-cal(44px);
+        line-height: rem-cal(44px);
+        font-size: rem-cal(13px);
+        color: #666;
+        padding-left: rem-cal(20px);
+        &.active {
+          color: #ffb000;
+        }
+      }
+      .filter-item {
+        margin-bottom: rem-cal(10px);
+        margin-top: rem-cal(5px);
+        padding-left: rem-cal(5px);
+        padding-right: rem-cal(5px);
+        .filter-title {
+          color: #999;
+          font-size: rem-cal(12px);
+          padding-left: rem-cal(14px);
+        }
+      }
+    }
+  }
+}
