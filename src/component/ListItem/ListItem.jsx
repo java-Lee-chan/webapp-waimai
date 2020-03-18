@@ -112,7 +112,7 @@ class ListItem extends React.Component {
     const { itemData } = this.props;
 
     return (
-      <div className="item-content scale-1px">
+      <div className="r-item-content scale-1px">
         <img className="item-img" src={itemData.pic_url} />
         {
           this.renderBrand(itemData)

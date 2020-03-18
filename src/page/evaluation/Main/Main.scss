@@ -1,0 +1,74 @@
+body {
+  min-height: 100%;
+  background-color: #efefef;
+  color: #2f2f2f;
+}
+.content {
+  height: 100%;
+  .eva-content {
+    background-color: #fff;
+    overflow: hidden;
+    margin: rem-cal(10px);
+    margin-top: rem-cal(74px);
+    .star-area {
+      text-align: center;
+      margin-top: 30px;
+  
+      .star-item {
+        width: rem-cal(32px);
+        height: rem-cal(32px);
+        background-image: url('../img/gray-star.png');
+        background-size: cover;
+        display: inline-block;
+        margin-right: rem-cal(10px);
+        &.light {
+          background-image: url('../img/light-star.png');
+        }
+      }
+    }
+    .comment {
+      margin: rem-cal(20px) rem-cal(10px) 0;
+      border-bottom: 1px solid #e4e4e4;
+      padding-bottom: rem-cal(13px);
+      position: relative;
+      .comment-input {
+        width: 100%;
+        height: rem-cal(100px);
+        border: 1px solid #c6c6c6;
+        box-sizing: border-box;
+
+        outline: none;
+        -webkit-appearance: none;
+        border-radius: 0;
+
+        font-size: rem-cal(16px);
+        padding: rem-cal(10px);
+        background-color: #fafafa;
+      }
+      .count {
+        font-size: rem-cal(11px);
+        color: #aaa;
+        position: absolute;
+        bottom: rem-cal(24px);
+        right: rem-cal(9px);
+      }
+    }
+    .product-name {
+      padding: rem-cal(20px) 0 rem-cal(20px) rem-cal(20px);
+      text-align: left;
+      font-size: rem-cal(16px);
+    }
+  }
+  
+  .submit {
+    position: fixed;
+    width: 100%;
+    height: rem-cal(50px);
+    line-height: rem-cal(50px);
+    font-size: rem-cal(16px);
+    color: #333;
+    background-color: #ffd161;
+    bottom: 0;
+    text-align: center;
+  }
+}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ListItem from '@/component/ListItem/ListItem';
 import ScrollView from '@/component/ScrollView/ScrollView';
-import { getListData } from '../../actions/contentListAction';
+import { getListData } from '../actions/contentListAction';
 import './ContentList.scss';
 
 /**
@@ -11,54 +11,33 @@ import './ContentList.scss';
  * @description 附近商家列表
  */
 class ContentList extends React.Component {
-  constructor(props) {
-    super(props);
 
-    // 表示页面是否可以滚动
-    this.state = {
-      isend: false
-    };
-
-    // 记录当前页码
-    this.page = 0
-  }
-
-  fetchData(page) {
-    this.props.getListData(page);
+  fetchData() {
+    this.props.getListData();
   }
 
   renderItems() {
-    const { list } = this.props;
+    const list = this.props.list || [];
     return list.map((item, index) => {
       return <ListItem key={index} itemData={item} />
     })
   }
 
   onLoadPage() {
-    this.page++;
-    if (this.page > 3) {
-      this.setState({
-        isend: true
-      });
-    } else {
-      this.fetchData(this.page);
+    if (this.props.page <= 3) {
+      this.fetchData();
     }     
   }
 
   componentDidMount() {
     // 请求第一屏数据
-    this.fetchData(0);
+    this.fetchData();
   }
 
   render() {
     return (
       <div className="list-content">
-        <h4 className="list-title">
-          <span className="title-line"></span>
-          <span>附近商家</span>
-          <span className="title-line"></span>
-        </h4>
-        <ScrollView loadCallback={() => this.onLoadPage()} isend={this.state.isend}>
+        <ScrollView loadCallback={() => this.onLoadPage()} isend={this.props.isend}>
           {
             this.renderItems()
           }
@@ -69,10 +48,12 @@ class ContentList extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  list: state.contentListReducer.list
+  list: state.contentListReducer.list,
+  page: state.contentListReducer.page,
+  isend: state.contentListReducer.isend
 });
 const mapDispatchToProps = (dispatch) => ({
-  getListData: (page) => dispatch(getListData(page))
+  getListData: () => dispatch(getListData())
 });
 
 export default connect(

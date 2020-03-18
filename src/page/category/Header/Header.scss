@@ -10,6 +10,7 @@
     align-items: center;
     border-bottom: 1px solid #e4e4e4;
     background-color: #fff;
+    z-index: 4;
     .item {
       font-size: rem-cal(13px);
       color: #2f2f2f;
@@ -75,7 +76,8 @@
     }
   }
   .panel {
-    position: absolute;
+    // position: absolute;
+    position: fixed;
     z-index: 4;
     left: 0;
     top: rem-cal(105px);

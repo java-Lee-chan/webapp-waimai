@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeTab, getFilterData } from '../actions/headerAction';
+import { changeTab, getFilterData, changeFilter } from '../actions/headerAction';
+import { getListData } from '../actions/contentListAction';
 import { TABKEY } from '../config';
 import './Header.scss';
 
@@ -8,6 +9,39 @@ class Header extends React.Component {
 
   fetchData() {
     this.props.getFilterData();
+  }
+
+  revertActive(key, dataList) {
+    if (key === TABKEY.cate) {
+      for (let i = 0; i < dataList.length; i++) {
+        for (let j = 0; j < dataList[i].sub_category_list.length; j++) {
+          dataList[i].sub_category_list[j].active = false;
+        }
+      }
+    } else if (key === TABKEY.type) {
+      for (let x = 0; x < dataList.length; x++) {
+        dataList[x].active = false;
+      }
+    } else {
+      for (let k = 0; k < dataList.length; k++) {
+        for (let o = 0; o < dataList[k].items.length; o++) {
+          dataList[k].items[o].active = false;
+        }
+      }
+    }
+  }
+
+  /**
+   * 变化当前点击的item状态，同时发起filter请求
+   */
+  changeDoFilter(item, key, dataList) {
+    this.revertActive(key, dataList);
+    item.active = true;
+    this.props.changeFilter({ item, key });
+    this.props.getListData({
+      filterData: item,
+      toFirstPage: true
+    });
   }
 
   /**
@@ -48,11 +82,11 @@ class Header extends React.Component {
   /**
    * 全部分类内类目
    */
-  renderCateInnerContent(item, /* cateList */) {
+  renderCateInnerContent(item, cateList) {
     return item.sub_category_list.map((sub_item) => {
       const cls = sub_item.active ? 'cate-box-inner active' : 'cate-box-inner';
       return (
-        <div className="cate-box" key={sub_item.code}>
+        <div onClick={() => this.changeDoFilter(sub_item, TABKEY.cate, cateList)} className="cate-box" key={sub_item.code}>
           <div className={cls}>
             {sub_item.name}({sub_item.quantity})
           </div>
@@ -91,7 +125,7 @@ class Header extends React.Component {
     return typeList.map((type) => {
       const cls = type.active ? 'type-item active' : 'type-item';
       return (
-        <li key={type.code} className={cls}>
+        <li onClick={() => this.changeDoFilter(type, TABKEY.type, typeList)} key={type.code} className={cls}>
           { type.name }
         </li>
       )
@@ -101,14 +135,14 @@ class Header extends React.Component {
   /**
    * 筛选内部类目
    */
-  renderFilterInnerContent(items, /*filterList*/) {
+  renderFilterInnerContent(items, filterList) {
     return items.map((item) => {
       let cls = item.icon ? 'cate-box-inner has-icon' : 'cate-box-inner';
       if (item.active) {
-        cls += 'active';
+        cls += ' active';
       }
       return (
-        <div className="cate-box" key={item.code}>
+        <div onClick={() => this.changeDoFilter(item, TABKEY.filter, filterList)} className="cate-box" key={item.code}>
           <div className={cls}>
             {item.icon ? <img src={item.icon} /> : null}{item.name}
           </div>
@@ -218,7 +252,9 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   changeTab: (obj) => dispatch(changeTab(obj)),
-  getFilterData: () => dispatch(getFilterData())
+  getFilterData: () => dispatch(getFilterData()),
+  changeFilter: (obj) => dispatch(changeFilter(obj)),
+  getListData: (obj) => dispatch(getListData(obj))
 });
 export default connect(
   mapStateToProps,
