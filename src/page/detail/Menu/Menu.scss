@@ -1,0 +1,48 @@
+.menu-inner {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: rem-cal(110px);
+  display: flex;
+  overflow: hidden;
+  .left-bar {
+    width: rem-cal(85px);
+    background-color: #efefef;
+    overflow: auto;
+    height: 100%;
+    .left-bar-inner {
+      padding-bottom: rem-cal(85px);
+      .left-item {
+        font-size: rem-cal(14px);
+        color: #656565;
+        text-align: center;
+        height: rem-cal(60px);
+        border-bottom: 1px solid #bfbfbf;
+        display: flex;
+        justify-content: center;
+        &.active {
+          background-color: #fff;
+        }
+        .item-text {
+          line-height: rem-cal(20px);
+          align-self: center;
+          .item-icon {
+            width: rem-cal(20px);
+            height: rem-cal(20px);
+            display: inline-block;
+            vertical-align: rem-cal(-4px);
+            margin-right: rem-cal(6px);
+          }
+        }
+      }
+    }
+  }
+  .right-content {
+    .right-list {
+      .right-list-inner {
+        font-size: 16px;
+      }
+    }
+  }
+}

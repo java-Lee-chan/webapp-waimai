@@ -1,0 +1,31 @@
+.detail {
+  .tab-bar {
+    font-size: rem-cal(16px);
+    display: flex;
+    border: 1px solid #f0f0f0;
+    margin-top: rem-cal(64px);
+    .tab-item {
+      flex: 1;
+      height: rem-cal(45px);
+      line-height: rem-cal(45px);
+      position: relative;
+      color: #666;
+      text-align: center;
+      text-decoration: none;
+      &.active {
+        &::after {
+          content: '';
+          display: block;
+          height: rem-cal(4px);
+          width: rem-cal(60px);
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          background-color: #ffd161;
+        }
+      }
+    }
+  }
+}

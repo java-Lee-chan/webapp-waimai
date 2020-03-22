@@ -17,11 +17,11 @@ class BottomBar extends React.Component {
     super(props);
   }
   
-  changeTab = (item) => {
+  changeTab = (/*item*/) => {
     // this.props.changeTab({
     //   activeKey: item.key
     // });
-    this.props.history.replace(item.key);
+    // this.props.history.replace(item.key);
   }
 
   renderItems() {
