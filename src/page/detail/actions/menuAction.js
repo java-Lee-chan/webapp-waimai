@@ -1,4 +1,4 @@
-import { GET_LIST_DATA, LEFT_CLICK } from './actionTypes';
+import { GET_LIST_DATA, LEFT_CLICK, ADD_SELECT_ITEM, MINUS_SELECT_ITEM } from './actionTypes';
 import axios from 'axios';
 
 export const getListData = () => async (dispatch) => {
@@ -9,3 +9,7 @@ export const getListData = () => async (dispatch) => {
 }
 
 export const itemClick = (obj) => ({ type: LEFT_CLICK, obj });
+
+export const addSelectItem = (obj) => ({ type: ADD_SELECT_ITEM, obj });
+
+export const minusSelectItem = (obj) => ({ type: MINUS_SELECT_ITEM, obj });

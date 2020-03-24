@@ -39,9 +39,23 @@
     }
   }
   .right-content {
+    flex: 1;
+    margin-left: rem-cal(10px);
+    height: 100%;
+    overflow: auto;
+    .right-title {
+      font-weight: 700;
+      font-size: rem-cal(13px);
+      color: #333;
+      margin-top: rem-cal(10px);
+      padding-left: rem-cal(4px);
+      border-left: rem-cal(2px) solid #ffd161;
+    }
     .right-list {
+      height: 100%;
       .right-list-inner {
-        font-size: 16px;
+        font-size: rem-cal(16px);
+        padding-bottom: rem-cal(85px);
       }
     }
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getListData, itemClick } from '../actions/menuAction';
 import './Menu.scss';
+import MenuItem from './MenuItem/MenuItem';
 
 /**
  * 点菜tab页面
@@ -18,11 +19,13 @@ class Menu extends React.Component {
 
   renderRightList(spus) {
     const _spus = spus || [];
-    return _spus.map((item) => {
+    return _spus.map((item, index) => {
+      if (!item.chooseCount) {
+        item.chooseCount = 0;
+      }
       return (
-        <div key={item.id}>
-          {item.name}
-        </div>
+        <MenuItem key={item.id} data={item} _index={index}>
+        </MenuItem>
       )
     })
   }

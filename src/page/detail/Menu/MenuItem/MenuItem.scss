@@ -1,0 +1,64 @@
+.menu-item {
+  display: flex;
+  padding: rem-cal(25px) 0;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  .img {
+    width: rem-cal(62px);
+    height: rem-cal(62px);
+    margin-right: rem-cal(10px);
+  }
+  .menu-item-right {
+    flex: 1;
+    .item-title {
+      font-size: rem-cal(16px);
+      color: #2f2f2f;
+    }
+    .item-desc, .item-zan {
+      color: #a9a9a9;
+      font-size: rem-cal(12px);
+      margin-top: rem-cal(6px);
+      line-height: rem-cal(14px);
+      padding-right: rem-cal(14px);
+      &.item-desc {
+        line-height: rem-cal(17px);
+      }
+    }
+    .item-price {
+      margin-top: rem-cal(10px);
+      color: #fe4d3d;
+      font-size: rem-cal(18px);
+      .unit {
+        color: #a9a9a9;
+        font-size: rem-cal(12px);
+      }
+    }
+  }
+  .select-content {
+    position: absolute;
+    right: rem-cal(9px);
+    bottom: rem-cal(21px); 
+    display: flex;
+    .plus {
+      width: rem-cal(25px);
+      height: rem-cal(25px);
+      background-size: cover;
+      background-image: url('./img/plus.png');
+    }
+    .minus {
+      width: rem-cal(25px);
+      height: rem-cal(25px);
+      background-size: cover;
+      background-image: url('./img/minus.png');
+    }
+    .count {
+      font-size: rem-cal(15px);
+      color: #2f2f2f;
+      width: rem-cal(20px);
+      height: rem-cal(25px);
+      line-height: rem-cal(25px);
+      margin: 0 rem-cal(2px);
+      text-align: center;
+    }
+  }
+}
